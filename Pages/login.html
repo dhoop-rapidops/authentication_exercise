@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/login.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/497545421d.js" crossorigin="anonymous"></script>
+    <title>Login</title>
+</head>
+
+<body>
+
+    <div class="form">
+        <section class="container p-2">
+
+            <div class="row">
+                <div class="col-md-6 rightBorder">
+                    <div class="center">
+                        <form action="/auth/login" method="POST">
+                            <div class="inputWithIcon">
+                                <input type="text" placeholder="Your Email" name="email">
+                                <i class="fa fa-envelope-square fa-lg fa-fw" aria-hidden="true"></i>
+                            </div>
+                            <div class="inputWithIcon">
+                                <input type="password" placeholder="Your Password" name="password">
+                                <i class="fas fa-key fa-lg fa-fw" aria-hidden="true"></i>
+                            </div>
+                            <button type="submit" class="btn btn-info" id="login">Log In</button>
+                            <p class="text-right p-1">Don't have an account? <a href="/auth/signup" class="text-primary">Sign
+                                    Up</a>
+                                <p>
+                        </form>
+                        
+                    </div>
+    
+                </div>
+                <div class="col-md-6 btns">
+                    <div class="center social">
+                        <a class="btn btn-light" href="/auth/google"><i class="fab fa-google fa-lg" style="color: gray;"
+                                aria-hidden="true"></i> Log In With Google</a>
+                        <a class="btn btn-light" href="/auth/facebook"><i class="fab fa-facebook fa-lg" style="color: gray;"
+                                aria-hidden="true"></i> Log In With Facebook</a>
+                    </div>
+    
+                </div>
+            </div>
+    
+        </section>
+    </div>
+</body>
+
+</html>

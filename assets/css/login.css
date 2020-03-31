@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #17a2b8;
+    box-shadow: 0 0 8px 0 #17a2b8;
+}
+
+.inputWithIcon {
+    position: relative;
+}
+
+.inputWithIcon i {
+    position: absolute;
+    left: 0;
+    top: 13px;
+    padding: 9px 10px;
+    color: #aaa;
+    transition: 0.3s;
+}
+
+.inputWithIcon input[type="text"]:focus+i,
+.inputWithIcon input[type="password"]:focus+i {
+    color: #17a2b8;
+}
+
+
+.center {
+    width: 400px;
+    margin: auto;
+}
+
+.center button {
+    width: 100%;
+}
+
+.btns button {
+    display: block;
+    margin: 5px;
+}
+
+.social a {
+    margin: 20px 0;
+    text-align: left;
+    width: 250px;
+}
+
+.social button i {
+    margin: 0px 15px;
+}
+
+.rightBorder {
+    border-right: 2px dotted black;
+}
+
+.form {
+    margin-top: 150px;
+}
