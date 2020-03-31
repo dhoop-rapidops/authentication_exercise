@@ -1,5 +1,6 @@
 const LocalStrategy = require("passport-local").Strategy;
 const googleStrategy = require("passport-google-oauth20").Strategy;
+const FacebookStrategy = require("passport-facebook").Strategy;
 const User = require("./Models/User");
 const GUser = require("./Models/googleUser");
 
@@ -63,5 +64,35 @@ module.exports = (passport) => {
         });
 
     }));   
+
+    passport.use(new FacebookStrategy({
+        clientID: '151838916147225',
+        clientSecret: 'cdb63df6c9cf39cdf32df9635da196f1',
+        callbackURL: "/auth/facebook/callback"
+      },
+      function(accessToken, refreshToken, profile, cb) {
+        GUser.findOne({googleId: profile.id}).then((currentUser) => {
+            if(currentUser) {
+                console.log("User is", currentUser);
+                return cb(null, currentUser);
+            } else {
+                let username = profile.displayName.replace(".", "");
+                username = username.split(" ").join("_");
+        
+                new GUser({
+                    username: username,
+                    googleId: profile.id
+                }).save().then((newUser) => {
+                    console.log("new User created", newUser);
+                    return cb(null, newUser);
+                }).catch(err => {
+                    return cb(err);
+                });
+            }
+        }).catch(err => {
+            return cb(err);
+        });
+      }
+    ));
 
 }

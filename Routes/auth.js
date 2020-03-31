@@ -56,8 +56,11 @@ router.get("/google/redirect", passport.authenticate('google', { failureRedirect
     res.redirect("/");
 });
 
-router.get("/facebook", (req, res) => {
-    res.send("Authentication same as google");
+router.get("/facebook", passport.authenticate('facebook'));
+
+router.get("/facebook/callback", passport.authenticate('facebook', { failureRedirect: '/login' }), (req, res) => {
+    res.redirect("/");
 });
+
 
 module.exports = router;
